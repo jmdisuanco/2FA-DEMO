@@ -35,7 +35,7 @@ Fo the frontend the code in a way that it is untangled and can be checked by the
     'callbackURL': 'https://[CHANGE_THIS].ngrok.io/onetouch/endpoint',
     'authyApiKey': '[CHANGE_THIS]',
     'port': 8080`
-+ Login to https://dashboard.authy.com
++ Login to https://dashboard.authy.com and change the callbackURL under settings
 + `nodemon server`
 + run `ngrok http 8080` on another terminal
 
