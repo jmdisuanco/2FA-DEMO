@@ -29,21 +29,19 @@ Fo the frontend the code in a way that it is untangled and can be checked by the
 
 ## Installation
 
-`git clone https://github.com/jmdisuanco/2FA-DEMO.git`  
-'cd 2FA-DEMO'
-
-## API Reference
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
-
-## Tests
-
-Describe and show how to run the tests with code examples.
++ `git clone https://github.com/jmdisuanco/2FA-DEMO.git`  
++ `cd 2FA-DEMO`
++  `'secret': 'PLEASE',
+    'callbackURL': 'https://[CHANGE_THIS].ngrok.io/onetouch/endpoint',
+    'authyApiKey': '[CHANGE_THIS]',
+    'port': 8080`
++ Login to https://dashboard.authy.com
++ `nodemon server`
++ run `ngrok http 8080` on another terminal
 
 ## Contributors
 
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
+John Martin R. Disuanco
 
 ## License
-
-A short snippet describing the license (MIT, Apache, etc.)
+MIT

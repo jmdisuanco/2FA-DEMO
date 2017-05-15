@@ -1,6 +1,6 @@
 module.exports = {
     'secret': 'PLEASE',
-    'callbackURL': 'https://de4d621c.ngrok.io/onetouch/endpoint',
-    'authyApiKey': '99eeJLcCU0bcIN2D7fDHqHuGOqwh5dsB',
+    'callbackURL': 'https://[CHANGE_THIS].ngrok.io/onetouch/endpoint',
+    'authyApiKey': '[CHANGE_THIS]',
     'port': 8080
 };
