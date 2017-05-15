@@ -45,4 +45,34 @@
   <button class="mdl-snackbar__action" type="button"></button>
 </div>
   </body>
+  <script>
+  $(document).ready(function(){
+    var snackbarContainer = document.querySelector('#login-snackbar');
+    var handler = function(event) {
+      showSnackbarButton.style.backgroundColor = '';
+    };
+    $('#login').on('click',function(){
+      $.ajax({
+          type: "POST",
+          url: '#',
+          data: $('#loginForm').serialize()
+        })
+        .done(function( data ) {
+            if(data.status =='error'){
+              var snack = {
+                message: data.message,
+                timeout: 2000,
+                actionHandler: handler,
+                actionText: 'Okay'
+              };
+              snackbarContainer.MaterialSnackbar.showSnackbar(snack);
+            }
+           if(data.status =='ok'){
+               window.location = '/thanks'
+           }
+
+        });
+            })
+})
+  </script>
 </html>

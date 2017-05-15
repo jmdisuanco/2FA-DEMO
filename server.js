@@ -173,6 +173,10 @@ app.get('/register', function(req,res){
   res.sendFile(path.join(__dirname + '/public/register.html'))
 })
 
+app.get('/thanks', function(req,res){
+  res.sendFile(path.join(__dirname + '/public/thankyou.html'))
+})
+
 app.get('/onetouch/endpoint',function(req,res){
   let JWTtoken =''
   res.sendStatus(200)
