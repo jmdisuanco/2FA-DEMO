@@ -51,7 +51,7 @@
       </form>
     </div>
     <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="register()">
+      <a id="regs" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" >
         Register
       </a>
     </div>
@@ -60,15 +60,38 @@
     </div>
     <div class="mdl-layout-spacer"></div>
 </div>
-<div id="login-snackbar" class="mdl-js-snackbar mdl-snackbar">
+<div id="register-snackbar" class="mdl-js-snackbar mdl-snackbar">
   <div class="mdl-snackbar__text"></div>
   <button class="mdl-snackbar__action" type="button"></button>
 </div>
   </body>
   <script>
-  function register(){
-    console.log('loggin in');
-    document.getElementById("registerForm").submit();
-  }
+  $(document).ready(function(){
+    var snackbarContainer = document.querySelector('#register-snackbar');
+    var handler = function(event) {
+      showSnackbarButton.style.backgroundColor = '';
+    };
+    $('#regs').on('click',function(){
+      $.ajax({
+          type: "POST",
+          url: '#',
+          data: $('#registerForm').serialize()
+        })
+        .done(function( data ) {
+            if(data.status =='error'){
+              var snack = {
+                message: data.message,
+                timeout: 2000,
+                actionHandler: handler,
+                actionText: 'Okay'
+              };
+              snackbarContainer.MaterialSnackbar.showSnackbar(snack);
+            }
+           if(data.status =='ok'){
+               window.location = '/thanks'
+           }
+        });
+            })
+})
   </script>
 </html>

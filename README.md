@@ -29,7 +29,8 @@ Fo the frontend the code in a way that it is untangled and can be checked by the
 
 ## Installation
 
-`git clone https://github.com`  
+`git clone https://github.com/jmdisuanco/2FA-DEMO.git`  
+'cd 2FA-DEMO'
 
 ## API Reference
 

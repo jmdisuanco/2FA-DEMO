@@ -226,11 +226,10 @@ app.post('/register', function(req,res){
   if(validator.isEmail(emailfield)) {
     newUser.email = emailfield
   }else{
-    respond('error','invalid email address',res)
+    return respond('error','invalid email address',res)
     errorState = true
   }
 let mobilefield = sanitizer.sanitize(req.body.mobile)
-console.log(mobilefield)
   newUser.mobile = mobilefield
   newUser.password = bcrypt.hashSync(sanitizer.sanitize(req.body.password), 10)
   if(newUser.password != null && errorState == false){
@@ -241,17 +240,15 @@ console.log(mobilefield)
       db.insert(newUser, function (err, newDoc) {
         if(err) {
           console.log('Sorry, but email is already registered')
-          respond('error','Sorry, but email is already registered',res)
+          return respond('error','Sorry, but email is already registered',res)
         }else {
-          respond('ok','',res)
+          return respond('ok','',res)
         }
       })
     })
   }else{
-    console.log(newUser.password)
     respond('error','Check the details',res)
   }
-
 })
 
 function issueJWT(userid){
@@ -270,5 +267,5 @@ function respond(status,details,res){
 }
 
 server.listen(config.port, function(){
-  console.log('Demo App is liseting on PORT :' + config.port)
+  console.log('Demo App is listening on PORT :' + config.port)
 })
