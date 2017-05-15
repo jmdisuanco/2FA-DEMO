@@ -1,0 +1,23 @@
+{
+  "name": "jadopado",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Martin R. Disuanco",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.2",
+    "jsonwebtoken": "^7.4.0",
+    "nedb": "^1.8.0",
+    "request-promise": "^4.2.1",
+    "sanitizer": "^0.1.3",
+    "socket.io": "^2.0.1",
+    "validator": "^7.0.0"
+  }
+}
