@@ -91,7 +91,7 @@ app.post('/', function(req,res){
           if(result === true){
             user = docs
             // No Two Factor authentication
-              if(tfa === 'false' || tfa === undefined){
+              if(tfa === 'false' || tfa === undefined || tfa === false){
                 respond('ok',issueJWT(docs._id),res)
               }
             // SoftToken
@@ -233,7 +233,7 @@ let mobilefield = sanitizer.sanitize(req.body.mobile)
   newUser.mobile = mobilefield
   newUser.password = bcrypt.hashSync(sanitizer.sanitize(req.body.password), 10)
   if(newUser.password != null && errorState == false){
-    newUser.tfa = false
+    newUser.tfa = 'false'
     authy.register(newUser.email,newUser.mobile,'+971')
     .then(function(result){
       newUser.authyID = result
