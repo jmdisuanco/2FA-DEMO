@@ -18,10 +18,10 @@ register = function (email,cellphone,countryCode){
             },
             json: true
            }).then(function (parsedBody) {
-                // console.log('error:', error);
-                // console.log('statusCode:', response && response.statusCode);
-                // console.log('body:', body);
                 return parsedBody.user.id
+            })
+            .catch(function(err){
+              console.log('Something went wrong, probably API key mismatch')
             })
 
   function getAuthyID(body){
@@ -73,19 +73,6 @@ verifyCallback = function(req){
     let computed_sig = crypto.createHmac('sha256', this.apiKey).update(data).digest('base64')
     let sig = req.headers["x-authy-signature"]
     return sig == computed_sig
-
-  //  var url = config.callbackURL
-  //  var method = req.method;
-  //  var params = req.query;
-  //  // Sort the params.
-  //  var sorted_params = qs.stringify(params, { arrayFormat: 'brackets' }).split("&").sort(sortByPropertyOnly).join("&").replace(/%20/g, '+');
-   //
-  //  var nonce = req.headers["x-authy-signature-nonce"];
-  //  var data = nonce + "|" + method + "|" + url + "|" + sorted_params;
-   //
-  //  var computed_sig = crypto.createHmac('sha256', this.apiKey).update(data).digest('base64');
-  //  var sig = req.headers["x-authy-signature"];
-  //  return sig == computed_sig;
 }
 
 function sortByPropertyOnly(x, y){
